@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdns.gigya.com/js/gigya.js?apiKey=YOUR_API_KEY_HERE">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function(){
+                gigya.accounts.getAccountInfo({callback:function (response) {
+                    if (response.errorCode == 0) {
+                       $('#greeting').append(response.profile.firstName + '!!'); 
+                    }
+                    else{
+                        $('#greeting').append('Guest!!');
+                    }
+                }});
+            })
+        </script>
+        <h1 id="greeting">Hello </h1>
+    </body>
+</html>
